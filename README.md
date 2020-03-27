@@ -1,1 +1,16 @@
-# assignment6
+# Assignment 6: Weather Dashboard
+The following application allows users to search for a city and learn about the weather conditions for that specific place from the weather results that are displayed
+
+## Successes
+* I was able to use the Openweather API to have a card with the weather conditions for a particular city be displayed on the page
+* I was able to use moment to display the date and time
+* The city name, the date, the temperature, the humidity, and the wind speed were displayed in the search results
+* I was also able to get an icon representation of the weather conditions to be displayed along with the search results
+* Afterwards, the city that was searched appends to the list of "searched cities" on the aside
+* When one of these cities is clicked, the weather results for this city are also displayed
+
+## Bugs
+* I was unable to have the UV index be displayed as it needed to access the co-ordinates for a particular location, and the co-ordinates of each city were contained within a single ajax call, so I was unsure how these results could be accessed globally
+* I was unable to have the five–day forecast appear
+* I was unable to have jQuery modify the BootStrap CSS so that when a city is clicked on in the aside, only that city is displayed in blue
+* Although I used a Bootstrap framework, the site is not entirely mobile responsive when the screen size is reduced

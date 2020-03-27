@@ -26,7 +26,6 @@ console.log(searchedCities);
         // turn the array todos into a string to keep in local storage under the key todos
           localStorage.setItem("searchedCities", JSON.stringify(searchedCities));
         }
-
       };
 
       generateList();
