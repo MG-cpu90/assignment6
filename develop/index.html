@@ -1,133 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Knewave&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Weather Dashbord</title>
 </head>
+
 <body>
     <header>
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12 col-md-12 col-xs-12">
                 <div class="jumbotron jumbotron-fluid bg-dark">
                     <h1 class="display-4">Weather Dashbord</h1>
                     <hr class="my-4">
-                  </div>
+                </div>
             </div>
         </div>
     </header>
-    <div class="row">
-        <div class="col-lg-3">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2>Search for a City:</h2>
-                    <form class="search-form" id="form" style="margin:auto;max-width:300px">
-                        <input class="search-bar input" type="text" placeholder="Search" name="search1" id="form-input">
-                        <button class="search-city" type="submit" id="submit-button"><i class="fa fa-search"></i></button>
-                    </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-xs-6 text-center" id="aside">
+                <div class="row">
+                    <div class="h2-text col-md-12 col-xs-6">
+                        <h2>Search for a City:</h2>
+                    </div>
+                    <div class="col-md-12 col-xs-6">
+                        <form class="search-form" id="form">
+                            <input class="search-bar input" type="text" placeholder="Search" name="search1" id="form-input">
+                            <button class="search-city" type="submit" id="submit-button">
+                                <i class="fa fa-search" id="search-icon"></i>
+                            </button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card" style="width: 18rem;" id="card">
-                        <div class="card-header">
-                          Featured Cities:
+                <div class="row">
+                    <div class="card col-md-12 col-xs-6" id="cities-card">
+                        <div class="card-header" data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
+                            <h5>Recently Searched Cities:</h5>
                         </div>
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item">Amsterdam</li>
-                          <li class="list-group-item">Ankara</li>
-                          <li class="list-group-item">Athens</li>
-                          <li class="list-group-item">Bangkok</li>
-                          <li class="list-group-item">Berlin</li>
-                          <li class="list-group-item">Beijing</li>
-                          <li class="list-group-item">Bogota</li>
-                          <li class="list-group-item">Brasilia</li>
-                          <li class="list-group-item">Brussels</li>
-                          <li class="list-group-item">Buenos Aires</li>
-                          <li class="list-group-item">Cairo</li>
-                          <li class="list-group-item">Canberra</li>
-                          <li class="list-group-item">Cape Town</li>
-                          <li class="list-group-item">Caracas</li>
-                          <li class="list-group-item">Dublin</li>
-                          <li class="list-group-item">Edinburgh</li>
-                          <li class="list-group-item">Freetown</li>
-                          <li class="list-group-item">Georgetown</li>
-                          <li class="list-group-item">Guatemala City</li>
-                          <li class="list-group-item">Helsinki</li>
-                          <li class="list-group-item">Hong Kong</li>
-                          <li class="list-group-item">Islamabad</li>
-                          <li class="list-group-item">Jakarta</li>
-                          <li class="list-group-item">Kabul</li>
-                          <li class="list-group-item">Kiev</li>
-                          <li class="list-group-item">Kingston</li>
-                          <li class="list-group-item">Kuala Lumpur</li>
-                          <li class="list-group-item">La Paz</li>
-                          <li class="list-group-item">Lima</li>
-                          <li class="list-group-item">Lisbon</li>
-                          <li class="list-group-item">London</li>
-                          <li class="list-group-item">Madrid</li>
-                          <li class="list-group-item">Mexico City</li>
-                          <li class="list-group-item">Montevideo</li>
-                          <li class="list-group-item">Nairobi</li>
-                          <li class="list-group-item">New Dehli</li>
-                          <li class="list-group-item">New York</li>
-                          <li class="list-group-item">Ottawa</li>
-                          <li class="list-group-item">Paris</li>
-                          <li class="list-group-item">Prague</li>
-                          <li class="list-group-item">Quito</li>
-                          <li class="list-group-item">Rome</li>
-                          <li class="list-group-item">Santiago</li>
-                          <li class="list-group-item">Seoul</li>
-                          <li class="list-group-item">Singapore</li>
-                          <li class="list-group-item">Sydney</li>
-                          <li class="list-group-item">Tehran</li>
-                          <li class="list-group-item">Tokyo</li>
-                          <li class="list-group-item">Toronto</li>
-                          <li class="list-group-item">Ulaanbaatar</li>
-                          <li class="list-group-item">Vienna</li>
-                          <li class="list-group-item">Washington D.C.</li>
-                          <li class="list-group-item">Yaounde</li>
-                          <li class="list-group-item">Zagreb</li>  
+                        <ul class="list-group list-group-flush featured-cities">
                         </ul>
-                      </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-9">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card" style="width: 48rem;">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="card-link">Card link</a>
-                          <a href="#" class="card-link">Another link</a>
+            <div class="col-md-8 col-xs-6">
+                <div class="row">
+                    <div class="col-lg-12" id="forecast-div">
+                        <div class="card" id="results-card">
+                            <div class="card-body results">
+                                <h5 class="card-title">
+                                    <div class="city-name"></div>
+                                </h5>
+                                <h6 class="card-subtitle mb-2 text-muted">
+                                    <div class="date"></div>
+                                </h6>
+                                <div class="conditions"></div>
+                                <div class="wind"></div>
+                                <div class="humidity"></div>
+                                <div class="temp-C"></div>
+                                <div class="uv-index"></div>
+                            </div>
                         </div>
-                      </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12" id="five-day-forecast-div">
-                <!-- city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index -->
-                    <div class="city"></div>
-                    <div class="date"></div>
-                    <div class="conditions"></div>
-                    <div class="wind"></div>
-                    <div class="humidity"></div>
-                    <div class="temp-C"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-<script src="./scripts/script.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js" integrity="sha256-AdQN98MVZs44Eq2yTwtoKufhnU+uZ7v2kXnD5vqzZVo=" crossorigin="anonymous"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/f4f5161724.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
