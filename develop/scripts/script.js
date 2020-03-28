@@ -45,7 +45,7 @@ searchButton.on("click", function(event) {
     event.preventDefault();
     var cityName = input[0].value; 
     
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q="+cityName+"&units=metric&uvi?&appid=95d304ea9130c998e905d74bc71292d7";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&units=metric&uvi?&appid=95d304ea9130c998e905d74bc71292d7";
     
       // Performing an AJAX request with the queryURL
       $.ajax({
@@ -59,7 +59,7 @@ searchButton.on("click", function(event) {
         var cityWeather = JSON.stringify(response);    
 
         var iconCode = response.weather[0].icon;
-        var iconURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
+        var iconURL = "https://openweathermap.org/img/w/" + iconCode + ".png";
 
         // Append results
         $(".city-name").html(response.name + " Weather Details:");
@@ -89,7 +89,7 @@ searchButton.on("click", function(event) {
     // $(".featured-cities li.active").removeClass("active");
     // $(this).addClass("active");
 
-    var queryURL2 = "http://api.openweathermap.org/data/2.5/weather?q="+cityText+"&units=metric&uvi?&appid=95d304ea9130c998e905d74bc71292d7";
+    var queryURL2 = "https://api.openweathermap.org/data/2.5/weather?q="+cityText+"&units=metric&uvi?&appid=95d304ea9130c998e905d74bc71292d7";
       
       // Performing an AJAX request with the queryURL2
       $.ajax({
@@ -104,7 +104,7 @@ searchButton.on("click", function(event) {
         var cityWeather = JSON.stringify(response);
             
             var iconCode = response.weather[0].icon;
-            var iconURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
+            var iconURL = "https://openweathermap.org/img/w/" + iconCode + ".png";
 
         // Append results
         $(".city-name").html(response.name + " Weather Details:");
