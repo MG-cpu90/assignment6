@@ -8,9 +8,7 @@ var forecastDay = $("#forecast-div");
 var input = $("#form-input"); 
 var searchedCities = [];
 
-console.log(form);
-console.log(searchedCities);
-
+      // Function to create the recently searched cities list
       const generateList = function() {
       // if this item exists in local storage, we will load it 
       // We will change the array to add contents in local storage
@@ -28,13 +26,14 @@ console.log(searchedCities);
         }
       };
 
+      // Call the function
       generateList();
 
       var createList = function() {
         citiesList.empty();
-        for (j = 0; j < searchedCities.length; j++) {
+        for (i = 0; i < searchedCities.length; i++) {
           citiesList.append(
-            `<li class="list-group-item active searched-Cities" id="${searchedCities[j]}">${searchedCities[j]}</li>`
+            `<li class="list-group-item searched-Cities" id="${searchedCities[i]}">${searchedCities[i]}</li>`
           );
         }
       };
@@ -48,12 +47,6 @@ searchButton.on("click", function(event) {
     
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q="+cityName+"&units=metric&uvi?&appid=95d304ea9130c998e905d74bc71292d7";
     
-    console.log(input);
-    console.log(cityName);
-    console.log(searchButton);
-    console.log(queryURL);
-    console.log(citiesList);
-  
       // Performing an AJAX request with the queryURL
       $.ajax({
         url: queryURL,
@@ -63,40 +56,26 @@ searchButton.on("click", function(event) {
       })
         // After data comes back from the request
         .then(function(response) {
-            console.log(queryURL);
-            console.log(response);
-        var cityWeather = JSON.stringify(response);
-            console.log(cityWeather);      
+        var cityWeather = JSON.stringify(response);    
 
         var iconCode = response.weather[0].icon;
-        console.log(iconCode);
         var iconURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
-        console.log(iconURL);
 
-        // city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
         // Append results
-        $(".city-name").html(response.name +  " Weather Details:");
-        console.log(response.name + " Weather Details:");
+        $(".city-name").html(response.name + " Weather Details:");
         $(".date").html(timeDateToday);
-        console.log(timeDateToday);
-        $(".conditions").html("Conditions:  " + response.weather[0].main + "<img id='weather-icon' src='" + iconURL + "' alt='Weather icon'>");
-        console.log(response.weather[0].main);
-        console.log(iconURL);
+        $(".conditions").html("Conditions: " + response.weather[0].main + "<img id='weather-icon' src='" + iconURL + "' alt='Weather icon'>");
         $(".wind").text("Wind Speed: " + response.wind.speed);
-        console.log("Wind Speed: " + response.wind.speed);
         $(".humidity").text("Humidity: " + response.main.humidity);
-        console.log("Humidity: " + response.main.humidity);
         $(".temp-C").html("Temperature (°C): " + response.main.temp);
-        console.log("Temperature (°C): " + response.main.temp);
         });
 
+        // Get item from local storate
       var citiesTemp = JSON.parse(localStorage.getItem("searchedCities"));
       citiesTemp.push(cityName);
-        console.log(typeof citiesTemp);
-        console.log(citiesTemp);
-
+        // Set item to local storage
       localStorage.setItem("searchedCities", JSON.stringify(citiesTemp));
-      
+      // Call the functions
       generateList();
       createList();
 
@@ -105,9 +84,11 @@ searchButton.on("click", function(event) {
   // OnClick event for city buttons
   $(".searched-Cities").on("click", function(event) {
     event.preventDefault();
-    console.log(event.target);
-    cityText = $(event.target).attr("id");  
-    console.log(cityText);
+    var cityText = $(event.target).attr("id");  
+    
+    // $(".featured-cities li.active").removeClass("active");
+    // $(this).addClass("active");
+
     var queryURL2 = "http://api.openweathermap.org/data/2.5/weather?q="+cityText+"&units=metric&uvi?&appid=95d304ea9130c998e905d74bc71292d7";
       
       // Performing an AJAX request with the queryURL2
@@ -120,35 +101,20 @@ searchButton.on("click", function(event) {
 
         // After data comes back from the request
         .then(function(response) {
-            console.log(queryURL2);
-            console.log(response);
         var cityWeather = JSON.stringify(response);
-            console.log(cityWeather);   
             
             var iconCode = response.weather[0].icon;
-            console.log(iconCode);
             var iconURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
-            console.log(iconURL);
 
-        // city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
         // Append results
-        $(".city-name").html(response.name +  " Weather Details:");
-        console.log(response.name + " Weather Details:");
+        $(".city-name").html(response.name + " Weather Details:");
         $(".date").html(timeDateToday);
-        console.log(timeDateToday);
-        $(".conditions").html("Conditions:  " + response.weather[0].main + "<img id='weather-icon' src='" + iconURL + "' alt='Weather icon'>");
-        console.log(response.weather[0].main);
-        console.log(iconURL);
+        $(".conditions").html("Conditions: " + response.weather[0].main + "<img id='weather-icon' src='" + iconURL + "' alt='Weather icon'>");
         $(".wind").text("Wind Speed: " + response.wind.speed);
-        console.log("Wind Speed: " + response.wind.speed);
         $(".humidity").text("Humidity: " + response.main.humidity);
-        console.log("Humidity: " + response.main.humidity);
         $(".temp-C").html("Temperature (°C): " + response.main.temp);
-        console.log("Temperature (°C): " + response.main.temp);
         });
 
-      generateList();
-      createList();
+        generateList();
 
     });
-

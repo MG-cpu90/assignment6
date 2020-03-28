@@ -6,11 +6,12 @@ The following application allows users to search for a city and learn about the 
 * I was able to use moment to display the date and time
 * The city name, the date, the temperature, the humidity, and the wind speed were displayed in the search results
 * I was also able to get an icon representation of the weather conditions to be displayed along with the search results
-* Afterwards, the city that was searched appends to the list of "searched cities" on the aside
+* Afterwards, the city that was searched appends to the list of "searched cities" on the aside; when the page is refreshed they are still there
 * When one of these cities is clicked, the weather results for this city are also displayed
 
 ## Bugs
 * I was unable to have the UV index be displayed as it needed to access the co-ordinates for a particular location, and the co-ordinates of each city were contained within a single ajax call, so I was unsure how these results could be accessed globally
 * I was unable to have the five–day forecast appear
-* I was unable to have jQuery modify the BootStrap CSS so that when a city is clicked on in the aside, only that city is displayed in blue
+* I was unable to have jQuery modify the BootStrap CSS "active" class so that when a city is clicked on in the aside, only that city is displayed in blue; whenever I tried to use jQuery to add or remove the class, then the buttons stopped working
 * Although I used a Bootstrap framework, the site is not entirely mobile responsive when the screen size is reduced
+* When the buttons initially are appended to the aside list of searched cities, they do not work; however, once the page is refreshed, they work, unless a new city is typed in and appended to the list
