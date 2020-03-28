@@ -17,7 +17,6 @@ var searchedCities = [];
         // in local storage you can only store strings, so you are using JSON.parse to change the string into an array
         searchedCities = JSON.parse(localStorage.getItem("searchedCities"));  
         }
-      
         // or else do this
         else {
         // if there are no todos in local storage, then we set the "todos" to be an empty array
@@ -82,7 +81,7 @@ searchButton.on("click", function(event) {
   });
   
   // OnClick event for city buttons
-  $(".searched-Cities").on("click", function(event) {
+  $(".featured-cities").on("click", function(event) {
     event.preventDefault();
     var cityText = $(event.target).attr("id");  
     
