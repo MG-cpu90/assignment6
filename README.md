@@ -26,7 +26,8 @@ THEN I am again presented with current and future conditions for that city
 ```
 
 ## Usage
-* In order to run the application, open the "index.html" file inside the develop folder in the browser window.
+* In order to run the application, first clone the GitHub repository onto your local device.
+* Then, open the "index.html" file inside the develop folder in the browser window.
 
 ## Successes
 * I was able to use the Openweather API to have a card with the weather conditions for a particular city be displayed on the page
